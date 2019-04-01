@@ -9,19 +9,22 @@ import kotlinx.android.synthetic.main.activity_post_detail.*
 
 class PostDetailActivity : AppCompatActivity() {
 
+    /**
+     * Una activity que mostrara los detalles de un post en concreto.
+     * Los detalles del Post se mostraran como una lista.
+     * como en la [PostListActivity].
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post_detail)
         setSupportActionBar(detail_toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (savedInstanceState == null) {
+
+            // Crea el PostDetailFragment y lo añade a la Activity.
 
             val fragment = PostDetailFragment().apply {
                 arguments = Bundle().apply {

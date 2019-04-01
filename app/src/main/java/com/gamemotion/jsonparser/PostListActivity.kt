@@ -26,6 +26,8 @@ class PostListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.title = title
 
+        // Dandole a este boton cargara los post de la API  de WP
+
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Carga los Posts", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -37,11 +39,13 @@ class PostListActivity : AppCompatActivity() {
             twoPane = true
         }
 
+        // Llamo a la función setupRecyclerView
         setupRecyclerView(post_list)
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
 
+        // Carga los post que haya recogido desde la Clase DummyContent
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, twoPane)
     }
 
